@@ -1,2 +1,3 @@
-# teste
-Projeto de App para saude mental
+# Virtual Store
+Projeto de Loja Virtual em NextJs, React e SpringBoot
+
