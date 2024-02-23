@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.Date;
 
 @Entity
-@Table(name="cidade")
+@Table(name = "cidade")
 @Data
 public class Cidade {
     @Id
@@ -17,5 +17,7 @@ public class Cidade {
     private Date dataCriacao;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataAtualizacao;
-
+    @ManyToOne
+    @JoinColumn(name = "idEstado")
+    private Estado estado;
 }
