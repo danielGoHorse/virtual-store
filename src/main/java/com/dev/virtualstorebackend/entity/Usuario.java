@@ -1,9 +1,13 @@
 package com.dev.virtualstorebackend.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name="usuario")
@@ -17,9 +21,25 @@ public class Usuario {
     private String email;
     private String endereco;
     private String cep;
+
+    @OneToMany(mappedBy = "usuario", orphanRemoval = true,
+            cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @Setter(value = AccessLevel.NONE)
+    @JsonManagedReference
+    private List<PermissaoPessoa> permissaoPessoas;
+
+    @ManyToOne
+    @JoinColumn(name="idCidade")
+    private Cidade cidade;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataCriacao;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataAtualizacao;
 
+    public void setPermissaoPessoas(List<PermissaoPessoa> pp) {
+        for(PermissaoPessoa p:pp){
+            p.setUsuario(this);
+        }
+        this.permissaoPessoas = pp;
+    }
 }
