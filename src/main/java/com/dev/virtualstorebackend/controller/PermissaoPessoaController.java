@@ -14,28 +14,28 @@ public class PermissaoPessoaController {
     @Autowired
     private PermissaoPessoaService permissaoPessoaService;
 
-    @GetMapping("/")
-    public List<PermissaoPessoa> buscarTodos(PermissaoPessoa permissaoPessoa) {
-        return permissaoPessoaService.findAll();
-    }
-
-    @PostMapping("/")
-    public PermissaoPessoa inserir(@RequestBody  PermissaoPessoa permissaoPessoa) {
-
-        return permissaoPessoaService.create(permissaoPessoa);
-    }
-
-    @PutMapping("/")
-    public PermissaoPessoa alterar(@RequestBody PermissaoPessoa permissaoPessoa) {
-
-        return permissaoPessoaService.edit(permissaoPessoa);
-    }
-
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> excluir(@PathVariable("id") Long id) {
-
-        permissaoPessoaService.delete(id);
-        return ResponseEntity.ok().build();
-    }
+//    @GetMapping("/")
+//    public List<PermissaoPessoa> buscarTodos(PermissaoPessoa permissaoPessoa) {
+//        return permissaoPessoaService.findAll();
+//    }
+//
+//    @PostMapping("/")
+//    public PermissaoPessoa inserir(@RequestBody  PermissaoPessoa permissaoPessoa) {
+//
+//        return permissaoPessoaService.create(permissaoPessoa);
+//    }
+//
+//    @PutMapping("/")
+//    public PermissaoPessoa alterar(@RequestBody PermissaoPessoa permissaoPessoa) {
+//
+//        return permissaoPessoaService.edit(permissaoPessoa);
+//    }
+//
+//
+//    @DeleteMapping("/{id}")
+//    public ResponseEntity<Void> excluir(@PathVariable("id") Long id) {
+//
+//        permissaoPessoaService.delete(id);
+//        return ResponseEntity.ok().build();
+//    }
 }

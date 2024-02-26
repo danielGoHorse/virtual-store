@@ -20,8 +20,7 @@ public class UsuarioService {
 
     public Usuario create(Usuario object) {
         object.setDataCriacao(new Date());
-        Usuario novaUsuario = usuarioRepository.saveAndFlush(object);
-        return novaUsuario;
+        return usuarioRepository.saveAndFlush(object);
     }
 
     public Usuario edit(Usuario object) {
